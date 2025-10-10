@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Card from '@/components/Card';
+import CardReview from '@/components/CardReview';
 
 export default function Home() {
   const cardData = [
@@ -22,6 +23,30 @@ export default function Home() {
       description:
         'Gunakan tag, folder, dan pencarian canggih untuk menemukan apa yang Anda butuhkan dengan cepat.',
       img: '/icon3.svg',
+    },
+  ];
+
+  const cardReview = [
+    {
+      description:
+        '"Nyathet telah mengubah cara saya belajar. Saya dapat menyimpan semua catatan kuliah, tugas, dan riset saya di satu tempat. Ini adalah penyelamat hidup!"',
+      name: 'Sarah S',
+      jobs: 'Mahasiswa',
+      inisial: 'SS',
+    },
+    {
+      description:
+        '"Sebagai seorang profesional sibuk, Nyathet membantu saya tetap terorganisir. Antarmuka yang sederhana dan fitur manajemen tugas membuat hari kerja saya lebih efisien."',
+      name: 'John L',
+      jobs: 'Manajer Proyek',
+      inisial: 'JL',
+    },
+    {
+      description:
+        '"Saya suka bagaimana Nyathet memungkinkan saya untuk menyesuaikan cara saya mengatur catatan dan tugas saya. Ini sangat cocok untuk gaya kerja saya yang unik."',
+      name: 'Emily R',
+      jobs: 'Freelancer',
+      inisial: 'ER',
     },
   ];
 
@@ -51,6 +76,7 @@ export default function Home() {
           </div>
           <div className="rounded-xl overflow-hidden">
             <Image
+              loading="lazy"
               src="/heroImage.png"
               width={450}
               height={450}
@@ -58,7 +84,7 @@ export default function Home() {
             ></Image>
           </div>
         </section>
-        <section className="relative pt-10 pb-16 bg-[#FFFFFF]">
+        <section className="relative pt-10 pb-16 bg-[#FFFFFF]" id="fitur">
           <div className="flex flex-col items-center justify-center mb-8">
             <h1 className="text-[#4FD1C5] font-semibold text-xl">
               TINGKATKAN ALIRAN KERJA ANDA
@@ -82,6 +108,64 @@ export default function Home() {
                 />
               </div>
             ))}
+          </div>
+        </section>
+        <section className="relative pt-10 pb-16 bg-[#F7FAFC]" id="testimoni">
+          <div className="flex flex-col items-center justify-center mb-8">
+            <h1 className="text-[#4FD1C5] font-semibold text-xl">
+              DICINTAI OLEH PENGGUNA
+            </h1>
+            <h1 className="mt-2 font-bold text-4xl text-gray-600">
+              Apa Kata Pengguna Kami
+            </h1>
+            <p className="text-gray-500 text-xl mt-2 max-w-[60%] text-center">
+              Kami bangga telah membantu banyak orang untuk menjadi lebih
+              terorganisir dan produktif.
+            </p>
+          </div>
+          <div className="flex gap-x-8 mx-12 pt-6">
+            {cardReview.map((card, index) => (
+              <div key={index}>
+                <CardReview
+                  description={card.description}
+                  name={card.name}
+                  jobs={card.jobs}
+                  inisial={card.inisial}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+        <section
+          className="bg-[#FFFFFF] px-18 py-18 flex justify-between"
+          id="tentang-kami"
+        >
+          <div className=" flex-1 flex flex-col items-center justify-center mb-8 text-left">
+            <h1 className="text-[#4FD1C5] font-semibold text-xl w-full">
+              MISI KAMI
+            </h1>
+            <h1 className="mt-2 font-bold text-4xl text-gray-600 w-full">
+              Tentang Nyathet
+            </h1>
+            <p className="text-gray-500 text-xl mt-2 w-full pr-18 ">
+              Kami percaya bahwa perangkat lunak yang hebat dapat menghilangkan
+              gesekan dari hidup kita. Nyathet lahir dari keinginan untuk
+              menciptakan alat yang sederhana namun kuat untuk mengatur pikiran,
+              tugas, dan ide. Tim kami yang terdiri dari para desainer,
+              pengembang, dan pemikir yang bersemangat berdedikasi untuk
+              membangun produk terbaik untuk membantu Anda mencapai kejelasan
+              dan fokus.
+            </p>
+          </div>
+          <div className="flex-1 rounded-xl overflow-hidden aspect-[4/2] relative">
+            <Image
+              className="object-cover"
+              loading="lazy"
+              src="/aboutImage.png"
+              fill={true}
+              alt="Hero Image"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </section>
         <section className=" relative bg-[#F7FAFC] py-24 px-12">

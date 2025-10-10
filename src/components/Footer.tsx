@@ -19,7 +19,7 @@ const Footer = () => {
         <p>Ketentuan Layanan</p>
       </div>
       <div className="flex-1 text-right">
-        <p className=" ">&copy; {new Date().getFullYear()} Nyathet</p>
+        <p className=" ">&copy; 2025 Nyathet</p>
         <p> Hak cipta dilindungi undang-undang yang berlaku</p>
       </div>
     </footer>
