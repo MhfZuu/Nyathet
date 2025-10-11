@@ -64,13 +64,13 @@ const Navbar = () => {
 
         <div className="flex items-center gap-x-4">
           <Link
-            href="/login"
+            href="/sign-in"
             className="text-gray-600 px-4 py-2 rounded-xl border-gray-600 border-1 text-sm hover:bg-gray-200 transition-colors"
           >
             Login
           </Link>
           <Link
-            href="/register"
+            href="/sign-up"
             className="px-4 py-2 rounded-xl bg-gray-600 text-white text-sm hover:bg-gray-700 transition-colors"
           >
             Mulai Sekarang
