@@ -5,6 +5,7 @@ const SignUpPage = () => {
     <main className="flex items-center justify-center min-h-screen bg-[#E5F5F6]">
       <SignUp
         path="/sign-up"
+        forceRedirectUrl="/dashboard"
         appearance={{
           elements: {
             card: 'bg-white rounded-xl shadow-lg p-8',

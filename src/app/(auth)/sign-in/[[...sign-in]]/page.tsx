@@ -4,7 +4,8 @@ const SignInPage = () => {
   return (
     <main className="flex items-center justify-center min-h-screen bg-[#E5F5F6]">
       <SignIn
-        path="/sign-up"
+        path="/sign-in"
+        forceRedirectUrl="/dashboard"
         appearance={{
           elements: {
             card: 'bg-white rounded-xl shadow-lg p-8',
