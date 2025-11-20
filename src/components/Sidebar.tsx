@@ -4,7 +4,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useClerk, UserButton } from '@clerk/nextjs';
-import { MdDashboard, MdStar, MdPerson, MdLogout, MdMenu, MdClose } from 'react-icons/md';
+import {
+  MdDashboard,
+  MdStar,
+  MdPerson,
+  MdLogout,
+  MdMenu,
+  MdClose,
+} from 'react-icons/md';
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -27,28 +34,30 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow-lg"
+        className="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow-lg text-gray-700"
         aria-label="Toggle menu"
       >
         {isMobileMenuOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
       </button>
 
-      {/* Overlay for mobile */}
       {isMobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="lg:hidden fixed inset-0 z-30 bg-black opacity-10"
           onClick={closeMobileMenu}
         />
       )}
-
-      {/* Sidebar */}
-      <aside className={`
+      <aside
+        className={`
         fixed left-0 top-0 h-screen w-64 bg-white shadow-lg flex flex-col z-40 transition-transform duration-300
-        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-      `}>
+        ${
+          isMobileMenuOpen
+            ? 'translate-x-0'
+            : '-translate-x-full lg:translate-x-0'
+        }
+      `}
+      >
         <div className="p-6 border-b border-gray-200">
           <h1 className="text-2xl font-bold text-[#4FD1C5]">Nyathet</h1>
           <p className="text-sm text-gray-500 mt-1">Note Taking App</p>

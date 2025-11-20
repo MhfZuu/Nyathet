@@ -3,6 +3,8 @@
 import Sidebar from '@/components/Sidebar';
 import { NotesProvider } from '@/context/NotesContext';
 
+export const dynamic = 'force-dynamic';
+
 export default function ProtectedLayout({
   children,
 }: {

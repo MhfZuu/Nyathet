@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Card from '@/components/Card';
@@ -66,9 +67,9 @@ export default function Home() {
               kekacauan menjadi kejelasan.
             </p>
             <div className="flex font-semibold text-lg text-gray-700 gap-x-4 my-8">
-              <a href="/sign-up" className="shadow-md rounded-xl py-3 px-4 bg-[#4FD1C5]">
+              <Link href="/sign-up" className="shadow-md rounded-xl py-3 px-4 bg-[#4FD1C5]">
                 Mulai Sekarang
-              </a>
+              </Link>
               <a href="#fitur" className="shadow-md rounded-xl py-3 px-4 bg-[#e2e5e7]">
                 Pelajari Lebih Lanjut
               </a>
@@ -180,11 +181,11 @@ export default function Home() {
                 Bergabunglah dengan banyak orang lain yang menyederhanakan hidup
                 mereka dengan Nyathet. Gratis untuk memulai
               </p>
-              <a href="/sign-up" className="bg-[#4FD1C5] rounded-xl px-5 py-2 mx-auto mt-4 block w-fit">
+              <Link href="/sign-up" className="bg-[#4FD1C5] rounded-xl px-5 py-2 mx-auto mt-4 block w-fit">
                 <p className="text-lg font-semibold text-gray-700">
                   Mulai Gratis Sekarang
                 </p>
-              </a>
+              </Link>
             </div>
           </div>
         </section>

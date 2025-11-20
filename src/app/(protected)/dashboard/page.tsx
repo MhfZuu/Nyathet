@@ -6,19 +6,22 @@ import NoteCard from '@/components/NoteCard';
 import NoteModal from '@/components/NoteModal';
 import { MdAdd, MdSearch, MdFilterList } from 'react-icons/md';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 const Dashboard = () => {
-  const { notes, addNote, updateNote, deleteNote, toggleFavourite } = useNotes();
+  const { notes, addNote, updateNote, deleteNote, toggleFavourite, isLoading } = useNotes();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingNote, setEditingNote] = useState<Note | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filterCategory, setFilterCategory] = useState('all');
 
-  const handleSaveNote = (noteData: { title: string; category: string; description: string }) => {
+  const handleSaveNote = async (noteData: { title: string; category: string; description: string }) => {
     if (editingNote) {
-      updateNote(editingNote.id, noteData);
+      await updateNote(editingNote.id, noteData);
       setEditingNote(null);
     } else {
-      addNote(noteData);
+      await addNote(noteData);
     }
   };
 
@@ -43,7 +46,16 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="mb-8">
+      {isLoading ? (
+        <div className="flex items-center justify-center py-16">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4FD1C5] mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading notes...</p>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="mb-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-700">My Notes</h1>
@@ -120,6 +132,8 @@ const Dashboard = () => {
         onSave={handleSaveNote}
         editNote={editingNote}
       />
+        </>
+      )}
     </div>
   );
 };

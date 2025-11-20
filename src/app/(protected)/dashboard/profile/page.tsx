@@ -4,6 +4,9 @@ import { useUser } from '@clerk/nextjs';
 import { useNotes } from '@/context/NotesContext';
 import { MdNote, MdStar, MdLabel } from 'react-icons/md';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 const ProfilePage = () => {
   const { user } = useUser();
   const { notes, getFavourites } = useNotes();
