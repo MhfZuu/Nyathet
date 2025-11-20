@@ -1,17 +1,20 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
   transform: {
-    '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: {
-        jsx: 'react-jsx',
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          jsx: 'react-jsx',
+        },
       },
-    }],
+    ],
   },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
@@ -19,12 +22,6 @@ module.exports = {
     '!src/**/*.stories.{ts,tsx}',
     '!src/app/layout.tsx',
   ],
-  testMatch: [
-    '**/__tests__/**/*.(test|spec).(ts|tsx)',
-  ],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '/e2e/',
-    '/.next/',
-  ],
+  testMatch: ['**/__tests__/**/*.(test|spec).(ts|tsx)'],
+  testPathIgnorePatterns: ['/node_modules/', '/e2e/', '/.next/'],
 };
