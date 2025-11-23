@@ -50,6 +50,8 @@ jobs:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
           CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+          NEXT_PUBLIC_CLERK_SIGN_IN_URL: /sign-in
+          NEXT_PUBLIC_CLERK_SIGN_UP_URL: /sign-up
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
@@ -79,11 +81,13 @@ jobs:
         run: npm ci
 
       - name: Build application
-        run: npm run dotenv -e .env.example next build
+        run: npm run build
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
           CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+          NEXT_PUBLIC_CLERK_SIGN_IN_URL: /sign-in
+          NEXT_PUBLIC_CLERK_SIGN_UP_URL: /sign-up
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
