@@ -40,15 +40,15 @@ const NoteCard = ({ note, onEdit, onDelete, onToggleFavourite }: NoteCardProps) 
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-shadow relative">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5 hover:shadow-lg transition-shadow relative">
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-gray-700 mb-2">{note.title}</h3>
+          <h3 className="text-xl font-bold text-gray-700 dark:text-gray-200 mb-2">{note.title}</h3>
           <div className="flex items-center gap-2 mb-2 flex-wrap">
-            <span className="inline-block px-3 py-1 text-xs font-semibold bg-[#E5F5F6] text-[#4FD1C5] rounded-full">
+            <span className="inline-block px-3 py-1 text-xs font-semibold bg-[#E5F5F6] dark:bg-[#4FD1C5]/20 text-[#4FD1C5] rounded-full">
               {note.author}
             </span>
-            <span className="inline-block px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-600 rounded-full">
+            <span className="inline-block px-3 py-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full">
               {note.category}
             </span>
           </div>
@@ -56,19 +56,19 @@ const NoteCard = ({ note, onEdit, onDelete, onToggleFavourite }: NoteCardProps) 
         <div className="relative" ref={menuRef}>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="text-gray-500 hover:text-gray-700 p-1"
+            className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 p-1"
             aria-label="More options"
           >
             <MdMoreVert size={24} />
           </button>
           {showMenu && (
-            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+            <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-10">
               <button
                 onClick={() => {
                   onEdit(note);
                   setShowMenu(false);
                 }}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 flex items-center gap-2"
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 flex items-center gap-2"
               >
                 <MdEdit size={18} /> Edit
               </button>
@@ -77,7 +77,7 @@ const NoteCard = ({ note, onEdit, onDelete, onToggleFavourite }: NoteCardProps) 
                   onToggleFavourite(note.id);
                   setShowMenu(false);
                 }}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 flex items-center gap-2"
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 flex items-center gap-2"
               >
                 {note.isFavourite ? (
                   <>
@@ -94,7 +94,7 @@ const NoteCard = ({ note, onEdit, onDelete, onToggleFavourite }: NoteCardProps) 
                   onDelete(note.id);
                   setShowMenu(false);
                 }}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 flex items-center gap-2"
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-red-600 dark:text-red-400 flex items-center gap-2"
               >
                 <MdDelete size={18} /> Delete
               </button>
@@ -103,7 +103,7 @@ const NoteCard = ({ note, onEdit, onDelete, onToggleFavourite }: NoteCardProps) 
         </div>
       </div>
 
-      <div className="text-gray-600 text-sm mb-3 line-clamp-4 whitespace-pre-wrap">
+      <div className="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-4 whitespace-pre-wrap">
         {note.description}
       </div>
 

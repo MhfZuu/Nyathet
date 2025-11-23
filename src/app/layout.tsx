@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import { idID } from '@clerk/localizations';
+// import { ThemeProvider } from '@/components/ThemeProvider';
+import { ThemeProvider } from 'next-themes';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -47,12 +49,19 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider localization={customLocalization}>
-      <html lang="id">
+      <html lang="id" suppressHydrationWarning>
         <body
           className={`h-full ${geistSans.variable} ${geistMono.variable} antialiased`}
-          suppressHydrationWarning={false}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange={false}
+            storageKey="nyathet-theme"
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

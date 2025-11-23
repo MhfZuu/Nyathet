@@ -52,14 +52,14 @@ const NoteModal = ({ isOpen, onClose, onSave, editNote }: NoteModalProps) => {
       className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-        <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-700">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex justify-between items-center">
+          <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-200">
             {editNote ? 'Edit Note' : 'Create New Note'}
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
+            className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
             aria-label="Close modal"
           >
             <MdClose size={28} />
@@ -68,7 +68,7 @@ const NoteModal = ({ isOpen, onClose, onSave, editNote }: NoteModalProps) => {
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label htmlFor="title" className="block text-sm font-semibold text-gray-600 mb-2">
+            <label htmlFor="title" className="block text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">
               Title *
             </label>
             <input
@@ -76,14 +76,14 @@ const NoteModal = ({ isOpen, onClose, onSave, editNote }: NoteModalProps) => {
               id="title"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-[#F7FAFC]"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-[#F7FAFC] dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               placeholder="Enter note title"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="category" className="block text-sm font-semibold text-gray-600 mb-2">
+            <label htmlFor="category" className="block text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">
               Category *
             </label>
             <input
@@ -91,25 +91,25 @@ const NoteModal = ({ isOpen, onClose, onSave, editNote }: NoteModalProps) => {
               id="category"
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-[#F7FAFC]"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-[#F7FAFC] dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               placeholder="e.g., Work, Personal, Study"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="description" className="block text-sm font-semibold text-gray-600 mb-2">
+            <label htmlFor="description" className="block text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">
               Description *
             </label>
             <textarea
               id="description"
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-[#F7FAFC] min-h-[200px]"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-[#F7FAFC] dark:bg-gray-700 text-gray-900 dark:text-gray-100 min-h-[200px]"
               placeholder="Write your note here... You can use bullet points:&#10;• Item 1&#10;• Item 2"
               required
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
               Tip: Use bullet points (•) or numbers for lists
             </p>
           </div>
@@ -124,7 +124,7 @@ const NoteModal = ({ isOpen, onClose, onSave, editNote }: NoteModalProps) => {
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors"
+              className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
             >
               Cancel
             </button>

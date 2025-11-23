@@ -50,7 +50,7 @@ const Dashboard = () => {
         <div className="flex items-center justify-center py-16">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4FD1C5] mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading notes...</p>
+            <p className="text-gray-600 dark:text-gray-300">Loading notes...</p>
           </div>
         </div>
       ) : (
@@ -58,8 +58,8 @@ const Dashboard = () => {
           <div className="mb-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-700">My Notes</h1>
-            <p className="text-gray-500 mt-2">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-700 dark:text-gray-200">My Notes</h1>
+            <p className="text-gray-500 dark:text-gray-400 mt-2">
               {notes.length} {notes.length === 1 ? 'note' : 'notes'} in total
             </p>
           </div>
@@ -80,7 +80,7 @@ const Dashboard = () => {
               placeholder="Search notes..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-white"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
             />
           </div>
           <div className="relative">
@@ -88,7 +88,7 @@ const Dashboard = () => {
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
-              className="w-full sm:w-auto pl-10 pr-8 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-white appearance-none"
+              className="w-full sm:w-auto pl-10 pr-8 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 appearance-none"
             >
               {categories.map((category) => (
                 <option key={category} value={category}>
@@ -103,10 +103,10 @@ const Dashboard = () => {
       {filteredNotes.length === 0 ? (
         <div className="text-center py-16">
           <div className="text-6xl mb-4">📝</div>
-          <h3 className="text-2xl font-semibold text-gray-600 mb-2">
+          <h3 className="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-2">
             {notes.length === 0 ? 'No notes yet' : 'No notes found'}
           </h3>
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-400">
             {notes.length === 0
               ? 'Create your first note to get started!'
               : 'Try adjusting your search or filters'}

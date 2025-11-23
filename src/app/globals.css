@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+/* Define custom dark mode variant for Tailwind v4 */
+@variant dark (.dark &);
+
+@theme {
+  --color-primary: #4fd1c5;
+  --font-family-sans: var(--font-geist-sans);
+  --font-family-mono: var(--font-geist-mono);
+}
+
 html,
 body {
   height: 100%;
@@ -12,15 +21,13 @@ body {
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }

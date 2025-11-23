@@ -39,14 +39,14 @@ const FavouritesPage = () => {
         <div className="flex items-center justify-center py-16">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4FD1C5] mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading notes...</p>
+            <p className="text-gray-600 dark:text-gray-300">Loading notes...</p>
           </div>
         </div>
       ) : (
         <>
           <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-700 mb-2">Favourite Notes</h1>
-        <p className="text-gray-500">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-700 dark:text-gray-200 mb-2">Favourite Notes</h1>
+        <p className="text-gray-500 dark:text-gray-400">
           {favouriteNotes.length} {favouriteNotes.length === 1 ? 'favourite note' : 'favourite notes'}
         </p>
       </div>
@@ -54,8 +54,8 @@ const FavouritesPage = () => {
       {favouriteNotes.length === 0 ? (
         <div className="text-center py-16">
           <MdStar className="mx-auto mb-4 text-yellow-500" size={80} />
-          <h3 className="text-2xl font-semibold text-gray-600 mb-2">No favourite notes yet</h3>
-          <p className="text-gray-500">
+          <h3 className="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-2">No favourite notes yet</h3>
+          <p className="text-gray-500 dark:text-gray-400">
             Mark notes as favourite to see them here
           </p>
         </div>

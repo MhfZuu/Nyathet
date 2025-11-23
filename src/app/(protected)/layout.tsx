@@ -12,7 +12,7 @@ export default function ProtectedLayout({
 }) {
   return (
     <NotesProvider>
-      <div className="flex min-h-screen bg-[#F7FAFC]">
+      <div className="flex min-h-screen bg-[#F7FAFC] dark:bg-gray-900">
         <Sidebar />
         <main className="flex-1 lg:ml-64 p-4 sm:p-6 md:p-8 w-full">
           {children}
