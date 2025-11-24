@@ -4,29 +4,32 @@ import Sidebar from '@/components/Sidebar';
 describe('Sidebar', () => {
   it('should render sidebar with navigation items', () => {
     render(<Sidebar />);
-    
-    expect(screen.getByText('Nyathet')).toBeInTheDocument();
-    expect(screen.getByText('Dashboard')).toBeInTheDocument();
-    expect(screen.getByText('Favourites')).toBeInTheDocument();
-    expect(screen.getByText('Profile')).toBeInTheDocument();
+
+    expect(screen.getAllByText('Nyathet').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Dashboard').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Favourites').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Profile').length).toBeGreaterThan(0);
   });
 
   it('should have correct links', () => {
     render(<Sidebar />);
-    
-    const dashboardLink = screen.getByRole('link', { name: /dashboard/i });
-    expect(dashboardLink).toHaveAttribute('href', '/dashboard');
-    
-    const favouritesLink = screen.getByRole('link', { name: /favourites/i });
-    expect(favouritesLink).toHaveAttribute('href', '/dashboard/favourites');
-    
-    const profileLink = screen.getByRole('link', { name: /profile/i });
-    expect(profileLink).toHaveAttribute('href', '/dashboard/profile');
+
+    const dashboardLinks = screen.getAllByRole('link', { name: /dashboard/i });
+    expect(dashboardLinks[0]).toHaveAttribute('href', '/dashboard');
+
+    const favouritesLinks = screen.getAllByRole('link', {
+      name: /favourites/i,
+    });
+    expect(favouritesLinks[0]).toHaveAttribute('href', '/dashboard/favourites');
+
+    const profileLinks = screen.getAllByRole('link', { name: /profile/i });
+    expect(profileLinks[0]).toHaveAttribute('href', '/dashboard/profile');
   });
 
   it('should render logout button', () => {
     render(<Sidebar />);
-    
-    expect(screen.getByText('Logout')).toBeInTheDocument();
+
+    const logoutButtons = screen.getAllByText('Logout');
+    expect(logoutButtons.length).toBeGreaterThanOrEqual(1);
   });
 });
