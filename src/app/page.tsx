@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Card from '@/components/Card';
 import CardReview from '@/components/CardReview';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 
 export default function Home() {
   const cardData = [
@@ -55,7 +56,6 @@ export default function Home() {
     <>
       <Navbar />
       <main className="relative min-h-screen w-full">
-        {/* Hero Section */}
         <section className="relative bg-[#E5F5F6] dark:bg-gray-800 min-h-screen px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row gap-8 lg:gap-x-10 justify-center lg:justify-around items-center pt-20 pb-12 lg:pt-0">
           <div className="font-extrabold text-center lg:text-left max-w-2xl lg:max-w-none">
             <div>
@@ -98,7 +98,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Features Section */}
         <section
           className="relative pt-10 sm:pt-16 pb-12 sm:pb-16 bg-[#FFFFFF] dark:bg-gray-900 px-4 sm:px-6 lg:px-12"
           id="fitur"
@@ -129,7 +128,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
         <section
           className="relative pt-10 sm:pt-16 pb-12 sm:pb-16 bg-[#F7FAFC] dark:bg-gray-800 px-4 sm:px-6 lg:px-12"
           id="testimoni"
@@ -146,7 +144,7 @@ export default function Home() {
               terorganisir dan produktif.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto px-4">
+          <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto px-6 pt-16 hidden lg:grid">
             {cardReview.map((card, index) => (
               <div key={index}>
                 <CardReview
@@ -158,9 +156,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="justify-center items-center mt-8 lg:hidden flex px-6">
+            <TestimonialsCarousel testimonials={cardReview} />
+          </div>
         </section>
 
-        {/* About Section */}
         <section
           className="bg-[#FFFFFF] dark:bg-gray-900 px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-18 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
           id="tentang-kami"
@@ -194,7 +194,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="relative bg-[#F7FAFC] dark:bg-gray-800 py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
           <div className="relative bg-[#4A5568] dark:bg-gray-700 rounded-2xl lg:rounded-3xl overflow-clip flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4">
             <div className="absolute rounded-full w-32 sm:w-40 lg:w-55 top-0 left-0 aspect-square z-10 bg-[#4B6E7A] dark:bg-gray-600 -translate-x-1/2 -translate-y-1/2"></div>

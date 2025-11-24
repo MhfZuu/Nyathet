@@ -15,14 +15,16 @@ const ProfilePage = () => {
   const categories = new Set(notes.map((note) => note.category));
 
   const stats = [
-    { label: 'Total Notes', value: notes.length, icon: MdNote, color: 'text-blue-600' },
-    { label: 'Favourites', value: favouriteNotes.length, icon: MdStar, color: 'text-yellow-600' },
-    { label: 'Categories', value: categories.size, icon: MdLabel, color: 'text-green-600' },
+    { label: 'Total Notes', value: notes.length, icon: MdNote },
+    { label: 'Favourites', value: favouriteNotes.length, icon: MdStar },
+    { label: 'Categories', value: categories.size, icon: MdLabel },
   ];
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl sm:text-4xl font-bold text-gray-700 dark:text-gray-200 mb-8">Profile</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold text-gray-700 dark:text-gray-200 mb-8">
+        Profile
+      </h1>
 
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sm:p-8 mb-6">
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
@@ -40,11 +42,17 @@ const ProfilePage = () => {
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Account Information</h3>
+          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">
+            Account Information
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Username</p>
-              <p className="text-gray-700 dark:text-gray-200 font-medium">{user?.username || 'Not set'}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Username
+              </p>
+              <p className="text-gray-700 dark:text-gray-200 font-medium">
+                {user?.username || 'Not set'}
+              </p>
             </div>
             <div>
               <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
@@ -53,19 +61,29 @@ const ProfilePage = () => {
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500 dark:text-gray-400">First Name</p>
-              <p className="text-gray-700 dark:text-gray-200 font-medium">{user?.firstName || 'Not set'}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                First Name
+              </p>
+              <p className="text-gray-700 dark:text-gray-200 font-medium">
+                {user?.firstName || 'Not set'}
+              </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Last Name</p>
-              <p className="text-gray-700 dark:text-gray-200 font-medium">{user?.lastName || 'Not set'}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Last Name
+              </p>
+              <p className="text-gray-700 dark:text-gray-200 font-medium">
+                {user?.lastName || 'Not set'}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sm:p-8">
-        <h3 className="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-6">Notes Statistics</h3>
+        <h3 className="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-6">
+          Notes Statistics
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           {stats.map((stat) => {
             const Icon = stat.icon;
@@ -74,13 +92,13 @@ const ProfilePage = () => {
                 key={stat.label}
                 className="bg-[#F7FAFC] dark:bg-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <Icon className={stat.color} size={32} />
-                  <span className={`text-3xl font-bold ${stat.color}`}>
-                    {stat.value}
-                  </span>
+                <div className="flex items-center justify-between mb-3 text-gray-600 dark:text-gray-300">
+                  <Icon size={32} />
+                  <span className={`text-3xl font-bold `}>{stat.value}</span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 font-medium">{stat.label}</p>
+                <p className="text-gray-600 dark:text-gray-300 font-medium">
+                  {stat.label}
+                </p>
               </div>
             );
           })}
@@ -88,7 +106,9 @@ const ProfilePage = () => {
 
         {categories.size > 0 && (
           <div className="mt-8">
-            <h4 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Your Categories</h4>
+            <h4 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">
+              Your Categories
+            </h4>
             <div className="flex flex-wrap gap-2">
               {Array.from(categories).map((category) => (
                 <span

@@ -51,7 +51,7 @@ export default function RootLayout({
     <ClerkProvider localization={customLocalization}>
       <html lang="id" suppressHydrationWarning>
         <body
-          className={`h-full ${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`h-full ${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-500 ease-in`}
         >
           <ThemeProvider
             attribute="class"
