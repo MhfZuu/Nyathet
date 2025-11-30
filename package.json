@@ -14,11 +14,13 @@
   "dependencies": {
     "@clerk/localizations": "^3.25.7",
     "@clerk/nextjs": "^6.33.3",
+    "@gsap/react": "^2.1.2",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.554.0",
     "mongoose": "^8.20.0",
     "next": "15.5.4",
